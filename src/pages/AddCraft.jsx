@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 
 const AddCraft = () => {
   const handleAddCraft = (event) => {
@@ -16,7 +17,28 @@ const AddCraft = () => {
     const shortDescription = form.shortDescription.value;
     const newCraft = { craftIamge, craftName, category, price, rating, customization, processingTime, stockStatus, email, userName, shortDescription }
     console.log(newCraft);
+    // send data to the server
+    fetch('http://localhost:5000/craft', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(newCraft)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        if (data.insertedId) {
+          Swal.fire({
+            title: 'Success!',
+            text: 'Craft added successfully',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
+        }
+      })
   }
+
   return (
     <div>
       <h2 className="text-3xl">Add New Craft</h2>
