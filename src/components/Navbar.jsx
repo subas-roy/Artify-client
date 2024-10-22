@@ -1,33 +1,11 @@
 import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
-  const horizontal = <>
-    <li><NavLink to={"/"}>Home</NavLink></li>
-    <li>
-      <details>
-        <summary>All Art & craft Items</summary>
-        <ul className="p-2">
-          <li><a>Submenu 1</a></li>
-          <li><a>Submenu 2</a></li>
-        </ul>
-      </details>
-    </li>
-    <li><NavLink to={"/addCraft"}>Add Craft Item</NavLink></li>
-    <li><NavLink to={"/my-list"}>My Art & Craft List</NavLink></li>
-    <li><NavLink to={"/register"}>Register</NavLink></li>
-    <li><NavLink to={"/login"}>Login</NavLink></li>
-  </>
   const links = <>
     <li><NavLink to={"/"}>Home</NavLink></li>
-    <li>
-      <NavLink>All Art & craft Items</NavLink>
-      <ul className="p-2">
-        <li><a>Submenu 1</a></li>
-        <li><a>Submenu 2</a></li>
-      </ul>
-    </li>
-    <li><NavLink to={"/add-craft-item"}>Add Craft Item</NavLink></li>
-    <li><NavLink to={"/my-list"}>My Art&Craft List</NavLink></li>
+    <li><NavLink to={"all"}>All Art & craft Items</NavLink></li>
+    <li><NavLink to={"/addCraft"}>Add Craft Item</NavLink></li>
+    <li><NavLink to={"/my-list"}>My Art & Craft List</NavLink></li>
     <li><NavLink to={"/register"}>Register</NavLink></li>
     <li><NavLink to={"/login"}>Login</NavLink></li>
   </>
@@ -59,7 +37,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          {horizontal}
+          {links}
         </ul>
       </div>
       <div className="navbar-end">

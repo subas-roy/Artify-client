@@ -76,7 +76,7 @@ const AddCraft = () => {
             <div className="label">
               <span className="label-text">Rating</span>
             </div>
-            <input type="text" name="rating" placeholder="Rating" className="input input-bordered w-full" />
+            <input type="text" name="rating" placeholder="1 - 5" className="input input-bordered w-full" />
           </label>
           <label className="form-control w-full">
             <div className="label">
@@ -122,7 +122,7 @@ const AddCraft = () => {
           </label>
         </div>
         <div className="mt-4">
-          <input type="submit" className="btn btn-outline" value="Add" />
+          <input type="submit" className="btn btn-outline" value="Add Craft" />
         </div>
       </form>
     </div>
