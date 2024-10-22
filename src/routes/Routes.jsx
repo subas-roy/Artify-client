@@ -6,27 +6,33 @@ import Home from "../pages/Home";
 import App from "../App";
 import AddCraft from "../pages/AddCraft";
 import All from "../components/All";
+import CraftDetail from "../components/CraftDetail";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
-    errorElement: <ErrorPage/>, 
+    element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
-        element: <Home/>,
+        element: <Home />,
         loader: () => fetch('http://localhost:5000/crafts')
       },
       {
         path: "/addCraft",
-        element: <AddCraft/>
+        element: <AddCraft />
       },
       {
         path: "/all",
-        element: <All/>,
+        element: <All />,
         loader: () => fetch('http://localhost:5000/crafts')
-      }
+      },
+      {
+        path: "/craftDetail/:id",
+        element: <CraftDetail />,
+        loader: () => fetch('http://localhost:5000/crafts')
+      },
     ]
   },
 ]);
