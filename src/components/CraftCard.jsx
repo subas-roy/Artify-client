@@ -5,7 +5,7 @@ const CraftCard = ({ craft }) => {
   return (
     <div className="card card-compact w-full">
       <figure>
-        <img src={craftIamge} alt="Craft" />
+        <img src={craftIamge} className="w-full h-full" alt="Craft" />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{craftName}</h2>
