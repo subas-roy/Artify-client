@@ -25,7 +25,7 @@ const All = () => {
                 <td>{craft.craftName}</td>
                 <td>{craft.category}</td>
                 <td>{craft.price}</td>
-                <td><Link className="link">View</Link></td>
+                <td><Link to={`/craftDetail/${craft._id}`} className="link">View</Link></td>
               </tr>)
             }
           </tbody>

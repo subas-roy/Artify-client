@@ -5,8 +5,10 @@ import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import App from "../App";
 import AddCraft from "../pages/AddCraft";
-import All from "../components/All";
-import CraftDetail from "../components/CraftDetail";
+import All from "../pages/All";
+import CraftDetail from "../pages/CraftDetail";
+import MyList from "../pages/MyList";
+import UpdateCraft from "../pages/UpdateCraft";
 
 const router = createBrowserRouter([
   {
@@ -32,6 +34,16 @@ const router = createBrowserRouter([
         path: "/craftDetail/:id",
         element: <CraftDetail />,
         loader: () => fetch('http://localhost:5000/crafts')
+      },
+      {
+        path: "/myList",
+        element: <MyList/>,
+        loader: () => fetch('http://localhost:5000/crafts')
+      },
+      {
+        path: "/updateCraft/:id",
+        element: <UpdateCraft/>,
+      loader: ({ params }) => fetch(`http://localhost:5000/crafts/${params.id}`)
       },
     ]
   },
