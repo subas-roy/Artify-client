@@ -45,8 +45,6 @@ const Footer = () => {
           </svg>
           <p>
             Artify
-            <br />
-            Providing reliable tech since 1992
           </p>
         </aside>
         <nav className="md:place-self-center md:justify-self-end">
