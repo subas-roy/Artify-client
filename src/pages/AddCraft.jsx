@@ -40,7 +40,7 @@ const AddCraft = () => {
   }
 
   return (
-    <div>
+    <div className="mx-auto px-24">
       <h2 className="text-3xl">Add New Craft</h2>
       <form onSubmit={handleAddCraft}>
         <div className="flex gap-4">

@@ -40,7 +40,7 @@ const MyList = () => {
   }
 
   return (
-    <div>
+    <div className="mx-auto px-24">
       <div className="grid grid-cols-2 gap-6">
         {crafts.map(craft =>
           <div key={craft._id} className="card card-side bg-base-100 shadow-xl">

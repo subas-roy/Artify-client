@@ -4,7 +4,7 @@ const All = () => {
   const crafts = useLoaderData();
 
   return (
-    <div>
+    <div className='mx-auto px-24'>
       <h2>All Crafts: {crafts.length}</h2>
       <div className="overflow-x-auto">
         <table className="table table-zebra">

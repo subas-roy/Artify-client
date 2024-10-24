@@ -9,6 +9,7 @@ import All from "../pages/All";
 import CraftDetail from "../pages/CraftDetail";
 import MyList from "../pages/MyList";
 import UpdateCraft from "../pages/UpdateCraft";
+import AddCategory from "../pages/AddCategory";
 
 const router = createBrowserRouter([
   {
@@ -37,13 +38,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/myList",
-        element: <MyList/>,
+        element: <MyList />,
         loader: () => fetch('http://localhost:5000/crafts')
       },
       {
         path: "/updateCraft/:id",
-        element: <UpdateCraft/>,
-      loader: ({ params }) => fetch(`http://localhost:5000/crafts/${params.id}`)
+        element: <UpdateCraft />,
+        loader: ({ params }) => fetch(`http://localhost:5000/crafts/${params.id}`)
+      },
+      {
+        path: "/addCategory",
+        element: <AddCategory />
       },
     ]
   },
