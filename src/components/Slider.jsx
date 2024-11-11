@@ -41,7 +41,7 @@ const Slider = () => {
         <img src="https://i.ibb.co.com/NSQ7spL/hybrid-hero-slide3-large.jpg" alt="" />
         <div className='absolute left-1/4 top-[75%] text-center text-white'>
           <h2 className="title text-5xl" data-swiper-parallax="-300">
-            New This Week
+            Get Recommandations
           </h2>
           <div className="subtitle text-2xl" data-swiper-parallax="-200">
             Browse Collections Updated Daily

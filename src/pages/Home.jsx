@@ -1,16 +1,52 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import CraftCard from "../components/CraftCard";
 import Slider from "../components/Slider";
+import { useEffect, useState } from "react";
 
 const Home = () => {
   const crafts = useLoaderData();
+  
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    const loadedCategories = async () => {
+      const response = await fetch('http://localhost:5000/categories');
+      const data = await response.json();
+      console.log
+      setCategories(data)
+    };
+    loadedCategories()
+  }, [])
+
   return (
-    <div>
+    <div className="m-w">
       <Slider />
       <div className="my-16">
         <h2 className="text-4xl w-3/4 mx-auto text-center my-6">Discover Art You Love From the World's Leading Online Gallery</h2>
         <div className="grid grid-cols-4 gap-4 mx-auto px-24">
           {crafts.map(craft => <CraftCard key={craft._id} craft={craft} />)}
+        </div>
+      </div>
+
+      <div className="px-16 mx-auto">
+        <h2 className="text-3xl my-6">Display By Category</h2>
+        <div className="grid grid-cols-2">
+          {
+            categories.map(category =>
+              <div key={category._id} className="card bg-base-100 image-full w-96 shadow-xl">
+                <figure>
+                  <img
+                    src={category.categoryImage} />
+                </figure>
+                <div className="card-body">
+                  <h2 className="card-title">{category.categoryName}</h2>
+                  <p>{category.categoryDescription}</p>
+                  <div className="card-actions justify-end">
+                    <Link to={`/categoryDetail/${category._id}`}><button className="btn btn-primary">View</button></Link>
+                  </div>
+                </div>
+              </div>
+            )
+          }
         </div>
       </div>
 

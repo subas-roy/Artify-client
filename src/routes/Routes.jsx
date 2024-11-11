@@ -10,6 +10,9 @@ import CraftDetail from "../pages/CraftDetail";
 import MyList from "../pages/MyList";
 import UpdateCraft from "../pages/UpdateCraft";
 import AddCategory from "../pages/AddCategory";
+import CategoryDetail from "../pages/CategoryDetail";
+import SignUp from "../pages/Signup";
+import SignIn from "../pages/SignIn";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +52,19 @@ const router = createBrowserRouter([
       {
         path: "/addCategory",
         element: <AddCategory />
+      },
+      {
+        path: "/categoryDetail/:id",
+        element: <CategoryDetail />,
+        loader: () => fetch('http://localhost:5000/categories')
+      },
+      {
+        path: "/signup",
+        element: <SignUp />
+      },
+      {
+        path: "/signin",
+        element: <SignIn />
       },
     ]
   },

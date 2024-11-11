@@ -44,7 +44,7 @@ const UpdateCraft = () => {
       })
   }
   return (
-    <div>
+    <div className="px-24 mx-auto">
       <h2 className="text-3xl">Update {craftName}</h2>
       <form onSubmit={handleUpdateCraft}>
         <div className="flex gap-4">
