@@ -1,6 +1,4 @@
-import {
-  createBrowserRouter,
-} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import App from "../App";
@@ -11,8 +9,9 @@ import MyList from "../pages/MyList";
 import UpdateCraft from "../pages/UpdateCraft";
 import AddCategory from "../pages/AddCategory";
 import CategoryDetail from "../pages/CategoryDetail";
-import SignUp from "../pages/Signup";
 import SignIn from "../pages/SignIn";
+import PrivateRoute from "./PrivateRoute";
+import SignUp from "../pages/SignUp";
 
 const router = createBrowserRouter([
   {
@@ -23,50 +22,59 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch('http://localhost:5000/crafts')
+        loader: () => fetch("http://localhost:5000/crafts"),
       },
       {
         path: "/addCraft",
-        element: <AddCraft />
+        element: (
+          <PrivateRoute>
+            <AddCraft />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/all",
         element: <All />,
-        loader: () => fetch('http://localhost:5000/crafts')
+        loader: () => fetch("http://localhost:5000/crafts"),
       },
       {
         path: "/craftDetail/:id",
         element: <CraftDetail />,
-        loader: () => fetch('http://localhost:5000/crafts')
+        loader: () => fetch("http://localhost:5000/crafts"),
       },
       {
         path: "/myList",
-        element: <MyList />,
-        loader: () => fetch('http://localhost:5000/crafts')
+        element: (
+          <PrivateRoute>
+            <MyList />
+          </PrivateRoute>
+        ),
+        loader: () => fetch("http://localhost:5000/crafts"),
       },
       {
         path: "/updateCraft/:id",
         element: <UpdateCraft />,
-        loader: ({ params }) => fetch(`http://localhost:5000/crafts/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/crafts/${params.id}`),
       },
       {
         path: "/addCategory",
-        element: <AddCategory />
+        element: <AddCategory />,
       },
       {
         path: "/categoryDetail/:id",
         element: <CategoryDetail />,
-        loader: () => fetch('http://localhost:5000/categories')
+        loader: () => fetch("http://localhost:5000/categories"),
       },
       {
         path: "/signup",
-        element: <SignUp />
+        element: <SignUp />,
       },
       {
         path: "/signin",
-        element: <SignIn />
+        element: <SignIn />,
       },
-    ]
+    ],
   },
 ]);
 
